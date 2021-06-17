@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="js/react.js"></script>
+		<script src="js/react-dom.js"></script>
+	</head>
+	<body>
+		<div id="content">
+			
+		</div>
+		<script type="text/javascript">
+			let h1=React.createElement('h1', null, 'Hello World!')
+			class HelloWorld extends React.Component{//리액트 컴포넌트 클래스 정의(이름은 대문자로)
+				render(){//엘리먼트 하나를 반환하는 함수인 render()메서드 생성
+					return React.createElement('div', null, h1, h1)
+					//리턴 문에는 리액트 엘리먼트를 반환하도록 구현하여 리액트 클래스가 render()를 실행하면 두 개의 <h1>엘리먼트를 감싼 <div> 엘리먼트를 받을 수 있다.
+				}
+			}
+			ReactDOM.render(//React 엘리먼트를 ID가 content인 실제 DOM에 넣어준다
+				React.createElement(HelloWorld, null),//HelloWorld 클래스는 문자열일 아닌 객체이다.
+				document.getElementById('content')
+			)
+		</script>
+	</body>
+</html>
