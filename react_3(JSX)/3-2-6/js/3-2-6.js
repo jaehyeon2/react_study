@@ -18,5 +18,5 @@ class Content extends React.Component {
 	}
 }
 
-ReactDOM.render(React.createElement(Content, { verify: 'true' }), //verify 값의 유무에 따라 링크 변경
+ReactDOM.render(React.createElement(Content, { verify: false }), //verify 값에 따라 링크 변경
 document.getElementById('content'));

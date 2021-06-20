@@ -10,6 +10,6 @@ class Content extends React.Component{
 }
 
 ReactDOM.render(
-	<Content verify="true"/>,//verify 값의 유무에 따라 링크 변경
+	<Content verify={false}/>,//verify 값에 따라 링크 변경
 	document.getElementById('content')
 )
