@@ -1,4 +1,13 @@
 class Mouse extends React.Component {
+	handleMouseOver(event) {
+		console.log('mouse is over with event');
+		window.e = event; //anti-pattern
+		console.dir(event.target);
+		setTimeOut(() => {
+			console.table(event.target);
+			console.table(window.e.target);
+		}, 2345);
+	}
 	render() {
 		return React.createElement(
 			'div',
@@ -7,17 +16,9 @@ class Mouse extends React.Component {
 				'div',
 				{
 					style: { border: '1px solid red' },
-					onMouseOver: event => {
-						console.log('mouse is over with event');
-						console.dir(event);
-					} },
-				'Open DevTools and move your mouse cursor over here'
+					onMouseOver: this.handleMouseOver.bind(this) },
+				'Open DevTools and move your mouse sursor over here'
 			)
 		);
 	}
 }
-
-/*onMouseOver={this.handleMouseOver.bind(this)}*/
-/*onMouseOver={((event)=>{
-						console.log('mouse is over with event')
-						console.dir(event)})}*/
