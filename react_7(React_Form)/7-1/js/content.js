@@ -3,6 +3,7 @@ class Content extends React.Component {
 		super(props);
 		this.handleRadio = this.handleRadio.bind(this);
 		this.handleCheckbox = this.handleCheckbox.bind(this);
+		this.handleSelectChange = this.handleSelectChange.bind(this);
 
 		this.state = {
 			description: `With the right pattern, applications will be more scalable and easier to maintain.
@@ -33,6 +34,7 @@ If you aspire one day to become a Node.js architect (or maybe you're already one
 	}
 	handleSelectChange(event) {
 		this.setState({ selectedValue: event.target.value });
+		console.log(event.target.value, event.target.selected);
 	}
 
 	render() {
@@ -134,6 +136,20 @@ If you aspire one day to become a Node.js architect (or maybe you're already one
 			React.createElement(
 				"div",
 				{ id: "textarea-container" },
+				React.createElement("textarea", {
+					name: "description",
+					defaultValue: this.state.description,
+					onChange: this.handleChange }),
+				React.createElement("hr", null),
+				React.createElement("textarea", {
+					name: "description1",
+					defaultValue: "Pro Express.js is for the reader\nwho wants to quickly get up-to-speed with Express.js, \nthe flexible Node.js framework",
+					onChange: this.handleChange })
+			),
+			React.createElement("hr", null),
+			React.createElement(
+				"div",
+				{ id: "select-container" },
 				React.createElement(
 					"select",
 					{
@@ -153,6 +169,26 @@ If you aspire one day to become a Node.js architect (or maybe you're already one
 						"option",
 						{ value: "python" },
 						"Python"
+					)
+				),
+				React.createElement("hr", null),
+				React.createElement(
+					"select",
+					{ multiple: true, value: ['meteor', 'react'] },
+					React.createElement(
+						"option",
+						{ value: "meteor" },
+						"Meteor"
+					),
+					React.createElement(
+						"option",
+						{ value: "react" },
+						"React"
+					),
+					React.createElement(
+						"option",
+						{ value: "jQuery" },
+						"jQuery"
 					)
 				)
 			)

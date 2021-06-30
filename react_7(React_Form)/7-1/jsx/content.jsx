@@ -3,6 +3,7 @@ class Content extends React.Component{
 		super(props)
 		this.handleRadio=this.handleRadio.bind(this)
 		this.handleCheckbox=this.handleCheckbox.bind(this)
+		this.handleSelectChange = this.handleSelectChange.bind(this)
 		
 		this.state={
 			description: `With the right pattern, applications will be more scalable and easier to maintain.
@@ -33,6 +34,7 @@ If you aspire one day to become a Node.js architect (or maybe you're already one
 	}
 	handleSelectChange(event){
 		this.setState({selectedValue:event.target.value})
+		console.log(event.target.value, event.target.selected)
 	}
 	
 	render(){
@@ -113,6 +115,18 @@ If you aspire one day to become a Node.js architect (or maybe you're already one
 				</div>
 				<hr/>
 				<div id="textarea-container">
+					<textarea
+						name="description"
+						defaultValue={this.state.description}
+						onChange={this.handleChange}/>
+					<hr/>
+					<textarea
+						name="description1"
+						defaultValue={"Pro Express.js is for the reader\nwho wants to quickly get up-to-speed with Express.js, \nthe flexible Node.js framework"}
+						onChange={this.handleChange}/>
+				</div>
+				<hr/>
+				<div id="select-container">
 					<select
 						value={this.state.selectedValue}
 						onChange={this.handleSelectChange}>
@@ -120,7 +134,15 @@ If you aspire one day to become a Node.js architect (or maybe you're already one
 						<option value="node">Node</option>
 						<option value="python">Python</option>
 					</select>
+					<hr/>
+					<select multiple={true} value={['meteor', 'react']}>
+						<option value="meteor">Meteor</option>
+						<option value="react">React</option>
+						<option value="jQuery">jQuery</option>
+					</select>
+		{/*multiple={true}는 다중 선택 요소를 렌더링하고, 값이 미리 선택되어 있다.*/}
 				</div>
+				
 			</form>
 		)
 	}
