@@ -4,6 +4,7 @@ class Content extends React.Component {
 		this.handleRadio = this.handleRadio.bind(this);
 		this.handleCheckbox = this.handleCheckbox.bind(this);
 		this.handleSelectChange = this.handleSelectChange.bind(this);
+		this.handleChange = this.handleChange.bind(this);
 
 		this.state = {
 			description: `With the right pattern, applications will be more scalable and easier to maintain.
@@ -35,6 +36,9 @@ If you aspire one day to become a Node.js architect (or maybe you're already one
 	handleSelectChange(event) {
 		this.setState({ selectedValue: event.target.value });
 		console.log(event.target.value, event.target.selected);
+	}
+	handleChange(event) {
+		console.log(event.target.value);
 	}
 
 	render() {
@@ -191,6 +195,15 @@ If you aspire one day to become a Node.js architect (or maybe you're already one
 						"jQuery"
 					)
 				)
+			),
+			React.createElement("hr", null),
+			React.createElement(
+				"div",
+				{ id: "input-container" },
+				React.createElement("input", {
+					type: "text",
+					onChange: this.handleChange,
+					defaultValue: "wol5971@gmail.com" })
 			)
 		);
 	}
