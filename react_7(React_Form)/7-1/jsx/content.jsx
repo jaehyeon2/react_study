@@ -5,6 +5,8 @@ class Content extends React.Component{
 		this.handleCheckbox=this.handleCheckbox.bind(this)
 		this.handleSelectChange = this.handleSelectChange.bind(this)
 		this.handleChange=this.handleChange.bind(this)
+		this.handleFirstNameChange=this.handleFirstNameChange.bind(this)
+		this.handleSubmit=this.handleSubmit.bind(this)
 		
 		this.state={
 			description: `With the right pattern, applications will be more scalable and easier to maintain.
@@ -38,12 +40,29 @@ If you aspire one day to become a Node.js architect (or maybe you're already one
 		console.log(event.target.value, event.target.selected)
 	}
 	handleChange(event){
-		console.log(event.target.value)
+		this.setState({emailValue:event.target.value})
+	}
+	handleFirstNameChange(event){
+		this.setState({firstName:event.target.value})
+	}
+	handleSubmit(){
+		fetch(this.props['data-url'], {method:'POST', body:JSON.stringify(this.state)})
+		.then((response)=>{return response.json()})
+		.then((data)=>{console.log('Submitted: ', data)})
 	}
 	
 	render(){
 		return(
 			<form>
+				<div id="firstname-container">
+					<label>
+						fisrstname<br/>
+						<input name="firstName"
+							onChange={this.handleFirstNameChange}
+							type="text"/>
+					</label>
+				</div>
+				<hr/>
 				<div id="radio-container">
 					<label>
 						<input
@@ -153,6 +172,11 @@ If you aspire one day to become a Node.js architect (or maybe you're already one
 						onChange={this.handleChange}
 						defaultValue="wol5971@gmail.com"/>
 				</div>
+				<hr/>
+				<input
+					type="button"
+					onClick={this.handleSubmit}
+					value="submit"/>
 			</form>
 		)
 	}
