@@ -4,7 +4,7 @@ class Menu extends React.Component{
 		return (
 			<div>
 				{menus.map((v, i)=>{
-					return <div key={i}><Link lavel={v}/></div>
+					return <div key={i}><Link label={v}/></div>
 				})}
 			</div>
 		)

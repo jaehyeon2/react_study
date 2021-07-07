@@ -8,7 +8,7 @@ class Menu extends React.Component {
 				return React.createElement(
 					'div',
 					{ key: i },
-					React.createElement(Link, { lavel: v })
+					React.createElement(Link, { label: v })
 				);
 			})
 		);
