@@ -7,7 +7,7 @@ class Timer extends React.Component {
 		return React.createElement(
 			'h1',
 			null,
-			'Time left:',
+			'Time left: ',
 			this.props.timeLeft
 		);
 	}
@@ -41,12 +41,12 @@ class TimerWrapper extends React.Component {
 	startTimer(timeLeft) {
 		clearInterval(this.state.timer);
 		let timer = setInterval(() => {
-			console.log('2:Inside of setInterval');
+			console.log('2: Inside of setInterval');
 			var timeLeft = this.state.timeLeft - 1;
 			if (timeLeft == 0) clearInterval(timer);
 			this.setState({ timeLeft: timeLeft });
 		}, 1000);
-		console.log('1:After setInterval');
+		console.log('1: After setInterval');
 		return this.setState({ timeLeft: timeLeft, timer: timer });
 	}
 	render() {
