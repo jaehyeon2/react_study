@@ -18,7 +18,7 @@ class Content extends React.Component {
 			<div className="well">
 				<p>{this.prompt}</p>
 				<div className="form-group">
-					Email: <input ref="emailAddress" className="form-control" type="text" placeholder="hi@azat.co"/>
+					Email: <input ref="emailAddress" className="form-control" type="text" placeholder="wol5971@gmail.com"/>
 				</div>
 				<div className="form-group">
 					Comments: <textarea ref="comments" className="form-control"  placeholder="I like your website!"/>
