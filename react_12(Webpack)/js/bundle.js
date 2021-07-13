@@ -9519,7 +9519,7 @@ class Content extends React.Component {
 				'div',
 				{ className: 'form-group' },
 				'Email: ',
-				React.createElement('input', { ref: 'emailAddress', className: 'form-control', type: 'email', placeholder: 'wol5971@gmail.com' })
+				React.createElement('input', { ref: 'emailAddress', className: 'form-control', type: 'text', placeholder: 'wol5971@gmail.com' })
 			),
 			React.createElement(
 				'div',
