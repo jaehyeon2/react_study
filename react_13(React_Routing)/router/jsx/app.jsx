@@ -1,17 +1,9 @@
-const React=require('react')
-const ReactDOM=require('react-dom')
 const ReactRouter=require('react-router')
-const History = require('history')
-
 
 let{Router,
 	Route,
 	Link
 }=ReactRouter
-
-let hashHistory = ReactRouter.useRouterHistory(History.createHashHistory)({
-	queryKey: false
-})
 
 ReactDOM.render((
 	<Router history={hashHistory}>
