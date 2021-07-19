@@ -57,6 +57,8 @@
 	const Posts = __webpack_require__(265);
 	const { withRouter } = __webpack_require__(172);
 	
+	const posts = __webpack_require__(266);
+	
 	let { Router,
 		Route,
 		Link
@@ -71,11 +73,11 @@
 		{ history: hashHistory },
 		React.createElement(
 			Route,
-			{ path: '/', component: content },
+			{ path: '/', component: Content },
 			React.createElement(Route, { path: '/about', component: About }),
 			React.createElement(Route, { path: '/posts', component: Posts, posts: posts }),
 			React.createElement(Route, { path: '/posts/:id', component: Post, posts: posts }),
-			React.createElement(Route, { path: '/contact', component: Contact })
+			React.createElement(Route, { path: '/contact', component: withRouter(Contact) })
 		),
 		React.createElement(Route, { path: '/login', component: Login })
 	), document.getElementById('content'));
@@ -28117,15 +28119,92 @@
 
 /***/ },
 /* 260 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
-
+	const React = __webpack_require__(1);
+	const { Link } = __webpack_require__(172);
+	
+	class Content extends React.Component {
+		render() {
+			return React.createElement(
+				'div',
+				null,
+				React.createElement(
+					'h1',
+					null,
+					'Node.University'
+				),
+				React.createElement(
+					'div',
+					{ clssName: 'navbar navbar-default' },
+					React.createElement(
+						'ul',
+						{ className: 'nav nav-pills navbar-nav' },
+						React.createElement(
+							'li',
+							{ className: this.context.router.isActive('/about') ? 'active' : '' },
+							React.createElement(
+								Link,
+								{ to: '/about', activeClassName: 'active' },
+								'About'
+							)
+						),
+						React.createElement(
+							'li',
+							{ className: this.context.router.isActive('/posts') ? 'active' : '' },
+							React.createElement(
+								Link,
+								{ to: '/posts', activeClassName: 'active' },
+								'Blog'
+							)
+						),
+						React.createElement(
+							'li',
+							{ className: this.context.router.isActive('/contact') ? 'active' : '' },
+							React.createElement(
+								Link,
+								{ to: '/contact', activeClassName: 'active' },
+								'Contact us'
+							)
+						),
+						React.createElement(
+							'li',
+							null,
+							React.createElement(
+								Link,
+								{ to: '/login', activeClassName: 'active' },
+								'Login'
+							)
+						)
+					)
+				),
+				this.props.children
+			);
+		}
+	}
+	Content.contextTypes = {
+		router: React.PropTypes.object.isRequired
+	};
+	module.exports = Content;
 
 /***/ },
 /* 261 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
-
+	const React = __webpack_require__(1);
+	
+	module.exports = function About() {
+		return React.createElement(
+			"div",
+			null,
+			React.createElement(
+				"a",
+				{ href: "http://Node.University", target: "_blank" },
+				"Node.University"
+			),
+			"is home to top-notch Node education"
+		);
+	};
 
 /***/ },
 /* 262 */
@@ -28141,12 +28220,45 @@
 
 /***/ },
 /* 264 */
+/***/ function(module, exports, __webpack_require__) {
+
+	const React = __webpack_require__(1);
+	
+	module.exports = function Product(props) {
+		let post = props.route.posts.find(element => element.slug == props.params.id);
+		return React.createElement(
+			"div",
+			null,
+			React.createElement(
+				"h3",
+				null,
+				post.title
+			),
+			React.createElement(
+				"p",
+				null,
+				post.text
+			),
+			React.createElement(
+				"p",
+				null,
+				React.createElement(
+					"a",
+					{ href: post.link, target: "_blank" },
+					"Continue reading..."
+				)
+			)
+		);
+	};
+
+/***/ },
+/* 265 */
 /***/ function(module, exports) {
 
 
 
 /***/ },
-/* 265 */
+/* 266 */
 /***/ function(module, exports) {
 
 
