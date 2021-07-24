@@ -28253,9 +28253,31 @@
 
 /***/ },
 /* 265 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
-
+	const { Link } = __webpack_require__(172);
+	const React = __webpack_require__(1);
+	
+	module.exports = function Posts(props) {
+		return React.createElement(
+			'div',
+			null,
+			'Posts',
+			React.createElement(
+				'ol',
+				null,
+				propt.route.posts.map((post, index) => React.createElement(
+					'li',
+					{ key: post.slug },
+					React.createElement(
+						Link,
+						{ to: `/posts/${post.slug}` },
+						post.title
+					)
+				))
+			)
+		);
+	};
 
 /***/ },
 /* 266 */
