@@ -28208,15 +28208,54 @@
 
 /***/ },
 /* 262 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
-
+	const React = __webpack_require__(1);
+	
+	module.exports = function Contact(props) {
+		// setTimeout(()=>{props.router.push('about')}, 1000)
+		return React.createElement(
+			"div",
+			null,
+			React.createElement(
+				"h3",
+				null,
+				"Contact Us"
+			),
+			React.createElement("input", { type: "text", placeholder: "your email", className: "form-control" }),
+			React.createElement("textarea", { type: "text", placeholder: "your message", className: "form-control" }),
+			React.createElement(
+				"button",
+				{ className: "btn btn-primary" },
+				"send"
+			)
+		);
+	};
 
 /***/ },
 /* 263 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
-
+	const React = __webpack_require__(1);
+	
+	module.exports = function Login() {
+		return React.createElement(
+			"div",
+			null,
+			React.createElement(
+				"h3",
+				null,
+				"Login"
+			),
+			React.createElement("input", { type: "text", placeholder: "email", className: "form-control" }),
+			React.createElement("input", { type: "text", placeholder: "password", className: "form-control" }),
+			React.createElement(
+				"button",
+				{ className: "btn btn-primary" },
+				"login"
+			)
+		);
+	};
 
 /***/ },
 /* 264 */
@@ -28283,7 +28322,22 @@
 /* 266 */
 /***/ function(module, exports) {
 
-
+	module.exports = [{
+	  slug: 'http2',
+	  title: 'Implementing HTTP/2 with Node.js and Express',
+	  link: 'http://webapplog.com/http2-node/',
+	  text: 'The modern Internet with its TCP/IP protocol started around 1975 which is astonishing 41 years ago. For the most part of its existence, we used HTTP and it’s successor HTTP/1.1 (version 1.1) to communicate between clients and servers.'
+	}, {
+	  slug: 'es6',
+	  title: 'Top 10 ES6 Features Every Busy JavaScript Developer Must Know',
+	  link: 'http://webapplog.com/es6/',
+	  text: 'This essay will give you a quick introduction to ES6. If you don’t know what is ES6, it’s a new JavaScript implementation...'
+	}, {
+	  slug: 'you-dont-know-node',
+	  title: 'You Don\'t Know Node: Quick Intro to Core Features',
+	  link: 'http://webapplog.com/you-dont-know-node/',
+	  text: 'This is a kitchen sink of subjectively the most interesting core features. The key takeaways of this essay are:...'
+	}];
 
 /***/ }
 /******/ ]);
